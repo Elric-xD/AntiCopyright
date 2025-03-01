@@ -17,8 +17,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 API_ID = 29593257
 API_HASH = "e9a3897c961f8dce2a0a88ab8d3dd843"
-BOT_TOKEN = "7370306201:AAGoUHzBkSSQYyEbEzIKMNNksAMD81EbObc"
-DEVS = [5690711835, 6312693124]
+BOT_TOKEN = ""
+DEVS = [7852519689, 6051280165]
 BOT_USERNAME = "BOT" # change your bot username without @
 
 ALL_GROUPS = []
@@ -42,9 +42,9 @@ DELETE_MESSAGE = [
 ]
 
 START_MESSAGE = """
-**Hello {}, I'm Anti - CopyRight Bot**
+**Hello {}, I'm Edit - MessageDelete Bot**
 
- > **I can save your groups from Copyrights 😉**
+ > **I can save your groups from Copyrights, Edit & Lots More 😉**
 
  **Work:** I'll Delete all medias of your group in every 1 hour ➰
  
@@ -58,15 +58,6 @@ bot = Client('bot', api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 def add_user(user_id):
    if user_id not in TOTAL_USERS:
       TOTAL_USERS.append(user_id)
-
-@bot.on_message(filters.command(["ping", "speed"]))
-async def ping(_, e: Message):
-   start = datetime.datetime.now()
-   add_user(e.from_user.id)
-   rep = await e.reply_text("**Pong !!**")
-   end = datetime.datetime.now()
-   ms = (end-start).microseconds / 1000
-   await rep.edit_text(f"🤖 **PONG**: `{ms}`ᴍs")
 
 @bot.on_message(filters.command(["help", "start"]))
 async def start_message(_, message: Message):
